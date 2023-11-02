@@ -1,0 +1,17 @@
+var pdfcrowd = require("pdfcrowd");
+
+// create the API client instance
+var client = new pdfcrowd.PdfToHtmlClient(
+  "demo",
+  "ce544b6ea52a5621fb9d55f8b542d14d"
+);
+
+// run the conversion and write the result to a file
+client.convertFileToFile(
+  "./Olivia-Resume.pdf",
+  "sample.html",
+  function (err, fileName) {
+    if (err) return console.error("Pdfcrowd Error: " + err);
+    console.log("Success: the file was created " + fileName);
+  }
+);
